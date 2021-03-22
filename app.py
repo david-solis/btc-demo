@@ -8,9 +8,8 @@ MODEL_FILE = 'model.h5'
 
 st.title("Brain Tumor Classifier")
 st.header("End-to-end Learning")
-st.text("Please upload a brain MRI scan")
 
-uploaded_file = st.file_uploader("Choose a brain MRI scan", type="jpg")
+uploaded_file = st.file_uploader("Please upload a brain MRI scan", type="jpg")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded MRI brain scan.', use_column_width=True)
