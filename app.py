@@ -1,4 +1,4 @@
-import keras
+import tensorflow as tf
 import numpy as np
 import streamlit as st
 from PIL import Image, ImageOps
@@ -16,9 +16,9 @@ if uploaded_file is not None:
     st.write("")
     st.write("Classifying...")
     # Load model
-    model = keras.models.load_model(MODEL_FILE)
+    model = tf.keras.models.load_model(MODEL_FILE)
     # Convert to the image format expected by the model
-    image = ImageOps.fit(image, IMG_SIZE, Image.ANTIALIAS).convert('L')
+    image = ImageOps.fit(image, IMG_SIZE, Image.LANCZOS).convert('L')
     image_array = np.expand_dims(np.array(image), axis=2)
     image_array = image_array.reshape((1,) + image_array.shape)
 
